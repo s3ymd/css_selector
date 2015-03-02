@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .flash {
+                background-color: yellow;
+            }
+            #selector {
+                font-size: 2em;
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <input type="text" id="selector" placeholder="ここにセレクタ式を入力してください（例：「#a」）">
+
+        <h1>商品一覧(#items):</h1>
+        <table border="1" id="items">
+            <thead>
+                <tr>
+                    <th>商品番号(.item-no)</th>
+                    <th>商品名(.item-name)</th>
+                    <th>価格(.item-price)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="item-no">1</td>
+                    <td class="item-name">りんご</td>
+                    <td class="item-price">100</td>
+                </tr>
+                <tr>
+                    <td class="item-no">2</td>
+                    <td class="item-name">みかん</td>
+                    <td class="item-price">200</td>
+                </tr>
+                <tr>
+                    <td class="item-no">3</td>
+                    <td class="item-name">バナナ</td>
+                    <td class="item-price">300</td>
+                </tr>
+                <tr>
+                    <td class="item-no">4</td>
+                    <td class="item-name">パイナップル</td>
+                    <td class="item-price">400</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <h1>ショッピングカート(#cart):</h1>
+        <table border="1" id="cart">
+            <thead>
+                <tr>
+                    <th>商品名(.item-name)</td>
+                    <th>個数(.item-count)</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="item-name">みかん</td>
+                    <td class="item-count">10</td>
+                </tr>
+                <tr>
+                    <td class="item-name">パイナップル</td>
+                    <td class="item-count">20</td>
+                </tr>
+            </tbody>
+        </table>
+        <script src="js/libs/jquery/jquery.min.js"></script>
+        <script>
+            $(function () {
+
+                $('#selector').on('input', function () {
+                    $('*').removeClass('flash');
+                    var selector = $(this).val();
+                    $(selector).addClass('flash');
+                });
+            });
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .flash {
+                border: 5px solid red;
+            }
+            #selector {
+                font-size: 2em;
+                width: 100%;
+            }
+            div {
+                border: 1px solid gray;
+                padding-bottom: 10px;
+                margin: 10px;
+                border-radius: 5px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <input type="text" id="selector" placeholder="ここにセレクタ式を入力してください（例：「#a」）">
+        <code>
+            <div class="a">
+                <div class="b">
+                    <div class="c">
+                        <div class="d">
+                            <div class="e">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="b">
+                    <div class="c">
+                        <div class="d">
+                            <div class="e">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="b">
+                    <div class="c">
+                        <div class="d">
+                            <div class="e">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </code>
+        
+        <script src="js/libs/jquery/jquery.min.js"></script>
+        <script>
+            $(function () {
+                $('code *').each(function () {
+                    console.log($(this));
+                    var cls = $(this).attr('class');
+                    $(this).prepend("&lt;div class=&quot;" + cls + "&quot;&gt;");
+                    
+                });
+                $('#selector').on('input', function () {
+                    $('*').removeClass('flash');
+                    var selector = $(this).val();
+                    $(selector).addClass('flash');
+                });
+            });
+
+        </script>
+    </body>
+</html>
